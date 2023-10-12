@@ -13,6 +13,9 @@ export default {
       animation: {
         "slide-down": "slide 1s linear infinite",
       },
+      backgroundImage: {
+        hero: "url('./src/assets/heroBg.png')",
+      },
     },
   },
   plugins: [],
