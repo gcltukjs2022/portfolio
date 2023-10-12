@@ -1,9 +1,31 @@
+import { useEffect, useState } from "react";
 import imgs from "../assets";
 
 const Header = () => {
+  const [scrollY, setScrollY] = useState<number>(window.scrollY);
+
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
-    <header className="sticky top-0 z-20 bg-white">
-      <div className="p-3 lg:py-4 lg:px-12 flex justify-between">
+    <header
+      className={`sticky top-0 z-20 ${
+        scrollY > 0 ? "bg-white shadow-lg" : "bg-transparent "
+      }`}
+    >
+      <div
+        className={`p-3 lg:py-4 lg:px-12 flex justify-between ${
+          scrollY > 0 ? "text-black" : "text-white"
+        }`}
+      >
         <div className="flex justify-center items-center gap-x-3">
           <img
             src={imgs.profile}

@@ -1,10 +1,27 @@
+import { useEffect, useState } from "react";
+import Header from "../layouts/Header";
+
 const Hero = () => {
+  const [scrollY, setScrollY] = useState<number>(window.scrollY);
+
+  const handleScroll = () => {
+    setScrollY(window.scrollY);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <section
       id="hero"
-      className="relative z-1 w-full h-screen bg-slate-100"
+      className="relative z-1 w-full h-screen bg-hero bg-cover"
     >
-      <div className="p-3 lg:p-24 flex flex-col items-center gap-y-12">
+      {scrollY === 0 && <Header />}
+      <div className="p-3 lg:p-24 flex flex-col items-center gap-y-12 text-white">
         <h1 className="font-extrabold text-5xl">HELLO, I'M GEORGE CHUNG</h1>
         <h1 className="text-3xl">I'm a full-stack web developer</h1>
         <button className="bg-black rounded-lg text-white px-6 py-3 lg:px-12 lg:py-4">
