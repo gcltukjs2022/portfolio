@@ -3,6 +3,7 @@ import imgs from "../assets";
 
 const Header = () => {
   const [scrollY, setScrollY] = useState<number>(window.scrollY);
+  const [isOpen, setIsOpen] = useState(false);
 
   const handleScroll = () => {
     setScrollY(window.scrollY);
@@ -16,40 +17,97 @@ const Header = () => {
   }, []);
 
   return (
-    <header
-      className={`sticky top-0 z-20 ${
-        scrollY > 0 ? "bg-white shadow-lg" : "bg-transparent "
-      }`}
-    >
-      <div
-        className={`p-3 lg:py-4 lg:px-12 flex justify-between ${
-          scrollY > 0 ? "text-black" : "text-white"
+    <>
+      <header
+        className={`fixed w-full top-0 z-20 ${
+          scrollY > 88 ? "bg-grey shadow-lg" : "bg-transparent "
         }`}
       >
-        <div className="flex justify-center items-center gap-x-3">
-          <img
-            src={imgs.profile}
-            alt="profile"
-            className="w-14 h-14 rounded-full"
-          />
-          <h2 className="font-bold">GEORGE CHUNG</h2>
+        <div className="max-w-[1440px] mx-auto p-6 lg:py-4 lg:px-12 flex justify-between text-white overflow-hidden">
+          <a
+            href="#hero"
+            className="flex justify-center items-center gap-x-3"
+          >
+            <img
+              src={imgs.profile}
+              alt="profile"
+              className="w-10 h-10 sm:w-14 sm:h-14 rounded-full"
+            />
+            <h2 className="font-bold">GEORGE CHUNG</h2>
+          </a>
+          <nav className="hidden sm:flex gap-x-3 lg:gap-x-12 items-center font-bold">
+            <a href="#hero">
+              <h2>HOME</h2>
+            </a>
+            <a href="#about">
+              <h2>ABOUT</h2>
+            </a>
+            <a href="#projects">
+              <h2>PROJECTS</h2>
+            </a>
+            <a href="#contact">
+              <h2>CONTACT</h2>
+            </a>
+          </nav>
+          <nav className="overflow-hidden">
+            <div className="mx-auto flex justify-between items-center sm:hidden">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-white hover:text-gray-400 focus:outline-none"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="white"
+                  className="h-6 w-6"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              </button>
+            </div>
+          </nav>
         </div>
-        <nav className="flex gap-x-3 lg:gap-x-12 items-center font-bold">
-          <a href="#hero">
-            <h2>HOME</h2>
-          </a>
-          <a href="#about">
-            <h2>ABOUT</h2>
-          </a>
-          <a href="#projects">
-            <h2>PROJECTS</h2>
-          </a>
-          <a href="#contact">
-            <h2>CONTACT</h2>
-          </a>
-        </nav>
+      </header>
+      <div
+        id="burger"
+        className={`absolute z-10 top-0 w-full min-h-screen p-4 pt-24 bg-grey  transition-all duration-200 ease-in-out ${
+          isOpen ? "right-0" : "-right-[120%]"
+        }`}
+      >
+        <ul className="flex flex-col items-center text-white">
+          <li
+            className="py-4"
+            onClick={() => setIsOpen(false)}
+          >
+            <a href="#hero">HOME</a>
+          </li>
+          <li
+            className="py-4"
+            onClick={() => setIsOpen(false)}
+          >
+            <a href="#about">ABOUT</a>
+          </li>
+          <li
+            className="py-4"
+            onClick={() => setIsOpen(false)}
+          >
+            <a href="#projects">PROJECTS</a>
+          </li>
+          <li
+            className="py-4"
+            onClick={() => setIsOpen(false)}
+          >
+            <a href="#contact">CONTACT</a>
+          </li>
+        </ul>
       </div>
-    </header>
+    </>
   );
 };
 

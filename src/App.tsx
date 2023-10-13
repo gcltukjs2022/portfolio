@@ -22,8 +22,8 @@ function App() {
   }, []);
 
   return (
-    <div className="max-w-[1920px] m-auto">
-      {scrollY > 1 && <Header />}
+    <div className="relative max-w-[2560px] m-auto overflow-hidden">
+      {scrollY > 88 && <Header />}
       <Hero />
       <About />
       <Projects />

@@ -3,6 +3,9 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}", "./src/**/*"],
   theme: {
     extend: {
+      colors: {
+        grey: "#252934",
+      },
       keyframes: {
         slide: {
           "0%": { top: "20%", opacity: 1 },
