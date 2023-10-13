@@ -81,7 +81,7 @@ const Header: React.FC<HeaderProps> = ({ handleScrollToView, currTab }) => {
               CONTACT
             </h2>
           </nav>
-          <div className="sm:hidden">
+          {/* <div className="sm:hidden">
             <div className="mx-auto flex justify-between items-center sm:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -103,42 +103,114 @@ const Header: React.FC<HeaderProps> = ({ handleScrollToView, currTab }) => {
                 </svg>
               </button>
             </div>
+          </div> */}
+          <div className="sm:hidden">
+            <div className="mx-auto flex justify-between items-center sm:hidden">
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-white hover:text-gray-400 focus:outline-none"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="white"
+                  className={`h-6 w-6 transform transition-transform ${
+                    isOpen ? "rotate-90" : "rotate-0"
+                  } duration-300 ease-in-out`}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d={
+                      isOpen
+                        ? "M6 18L18 6M6 6l12 12"
+                        : "M4 6h16M4 12h16M4 18h16"
+                    }
+                  />
+                </svg>
+              </button>
+            </div>
           </div>
         </div>
       </header>
       <nav
         id="burger"
         style={{ top: `${scrollY}px` }}
-        className={`xl:hidden absolute z-10 w-full min-h-screen p-4 pt-28 bg-grey  transition-all duration-200 ease-in-out ${
+        className={`md:hidden absolute z-10 flex flex-col gap-y-16 w-full min-h-screen p-4 pt-28 bg-grey  transition-all duration-200 ease-in-out ${
           isOpen ? "right-0" : "-right-[120%]"
         }`}
       >
         <ul className="flex flex-col items-center text-white">
           <li
-            className="py-4"
-            onClick={() => setIsOpen(false)}
+            className={`py-4 ${
+              currTab === "hero" && "text-red"
+            } cursor-pointer`}
+            onClick={() => {
+              setIsOpen(false);
+              handleScrollToView("hero");
+            }}
           >
-            <a href="#hero">HOME</a>
+            <h1 className="text-2xl font-semiboldbold">HOME</h1>
           </li>
           <li
-            className="py-4"
-            onClick={() => setIsOpen(false)}
+            className={`py-4 ${
+              currTab === "about" && "text-red"
+            } cursor-pointer`}
+            onClick={() => {
+              setIsOpen(false);
+              handleScrollToView("about");
+            }}
           >
-            <a href="#about">ABOUT</a>
+            <h1 className="text-2xl font-semiboldbold">ABOUT</h1>
           </li>
           <li
-            className="py-4"
-            onClick={() => setIsOpen(false)}
+            className={`py-4 ${
+              currTab === "projects" && "text-red"
+            } cursor-pointer`}
+            onClick={() => {
+              setIsOpen(false);
+              handleScrollToView("projects");
+            }}
           >
-            <a href="#projects">PROJECTS</a>
+            <h1 className="text-2xl font-semiboldbold">PROJECTS</h1>
           </li>
           <li
-            className="py-4"
-            onClick={() => setIsOpen(false)}
+            className={`py-4 ${
+              currTab === "contact" && "text-red"
+            } cursor-pointer`}
+            onClick={() => {
+              setIsOpen(false);
+              handleScrollToView("contact");
+            }}
           >
-            <a href="#contact">CONTACT</a>
+            <h1 className="text-2xl font-semiboldbold">CONTACTS</h1>
           </li>
         </ul>
+
+        <div className="flex gap-x-12 justify-center">
+          <a
+            href="https://www.linkedin.com/in/laptakchung"
+            target="_blank"
+          >
+            <img
+              src={imgs.linkedinWhite}
+              alt="linkedin"
+              className="w-12 h-12"
+            />
+          </a>
+          <a
+            href="https://github.com/gcltukjs2022"
+            target="_blank"
+          >
+            <img
+              src={imgs.githubWhite}
+              alt="github"
+              className="w-10 h-10"
+            />
+          </a>
+        </div>
       </nav>
     </>
   );

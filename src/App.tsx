@@ -54,7 +54,7 @@ function App() {
   }, []);
 
   return (
-    <main className="relative max-w-[2560px] m-auto overflow-hidden">
+    <main className="relative max-w-[2560px] m-auto overflow-hidden flex flex-col">
       <div className={`${scrollY <= 88 && "hidden"} `}>
         <Header
           handleScrollToView={handleScrollToView}

@@ -15,26 +15,28 @@ const Contact: React.FC<ContactProps> = ({ scrollRef, setCurrTab }) => {
     }
   }, [inView]);
 
+  const handleSubmit = async () => {};
+
   return (
     <section
       ref={scrollRef}
       id="contact"
       className="w-full p-6 pt-[108px] lg:pt-[128px] lg:px-12 bg-grey"
     >
-      <div
-        ref={ref}
-        className="max-w-[1440px] mx-auto flex flex-col gap-y-12 "
-      >
+      <div className="max-w-[1440px] mx-auto flex flex-col gap-y-20 ">
         <div className="flex flex-col justify-center gap-y-6 ">
-          <h1 className="xl:text-center text-2xl xl:text-4xl font-extrabold border-b-4 border-white pb-4 xl:pb-6 xl:max-w-max xl:m-auto text-white">
+          <h1 className="md:text-center text-2xl sm:text-3xl xl:text-4xl font-extrabold border-b-4 border-white text-white pb-4 md:pb-6 md:px-6 nd:max-w-max md:m-auto">
             CONTACT
           </h1>
-          <p className="xl:text-center text-lg xl:max-w-[60%] xl:m-auto text-white">
+          <p className="md:text-center text-lg xl:max-w-[60%] xl:m-auto text-white">
             Feel free to Contact me by submitting the form below and I will get
             back to you as soon as possible
           </p>
         </div>
-        <div className="bg-white w-full xl:max-w-[60%] m-auto px-8 py-12 shadow-2xl rounded-lg">
+        <div
+          className="bg-white w-full md:max-w-[80%] lg:max-w-[80%] m-auto px-8 py-12 shadow-2xl rounded-lg"
+          ref={ref}
+        >
           <form className="w-full flex flex-col gap-y-8">
             <div className="flex flex-col gap-y-3">
               <label>Name</label>

@@ -40,23 +40,25 @@ const About: React.FC<AboutProps> = ({ scrollRef, setCurrTab }) => {
     <section
       ref={scrollRef}
       id="about"
-      className="w-full max-w-[1440px] mx-auto p-6 pt-[108px] lg:pt-[128px] lg:px-12"
+      className="w-full min-h-screen max-w-[1440px] mx-auto p-6 pt-[108px] lg:pt-[148px] lg:px-12"
     >
-      <div
-        className="flex flex-col gap-y-6 xl:gap-y-12"
-        ref={ref}
-      >
-        <div className="flex flex-col justify-center gap-y-6 ">
-          <h1 className="xl:text-center text-2xl xl:text-4xl font-extrabold border-b-4 border-black pb-4 xl:pb-6 xl:max-w-max xl:m-auto">
+      <div className="flex flex-col gap-y-6 md:gap-y-24">
+        <div className="flex flex-col justify-center">
+          <h1 className="md:text-center text-2xl sm:text-3xl xl:text-4xl font-extrabold border-b-4 border-black pb-4 md:pb-6 md:px-6 nd:max-w-max md:m-auto">
             ABOUT ME
           </h1>
-          <p className="xl:text-center text-lg xl:max-w-[60%] xl:m-auto">
+          {/* <p className="xl:text-center text-lg xl:max-w-[60%] xl:m-auto">
             Here you will find more information about me and my tech stacks
-          </p>
+          </p> */}
         </div>
-        <div className="flex flex-col xl:flex-row gap-6 xl:gap-12 justify-between">
+        <div className="flex flex-col md:flex-row gap-12 justify-between">
           <div className="flex flex-col flex-1 gap-y-6">
-            <h1 className="text-2xl font-bold">My Story</h1>
+            <h1
+              className="text-2xl font-bold"
+              ref={ref}
+            >
+              My Story
+            </h1>
             <div className="flex flex-col gap-y-3">
               <p>
                 I'm a Full Stack Developer with a a year of coding experience.
@@ -67,10 +69,10 @@ const About: React.FC<AboutProps> = ({ scrollRef, setCurrTab }) => {
               </p>
               <p>
                 Within my portfolio, you'll discover projects that including
-                personal projects and production projects. Each project
-                represents the skills I have learnt. I'm excited to become a
-                better developer. Thank you for visiting, and I'm eager to
-                embark on exciting journeys together.
+                personal projects and clients projects. Each project represents
+                the skills I have learnt. I'm excited to become a better
+                developer. Thank you for visiting, and I'm eager to embark on
+                exciting journeys together.
               </p>
             </div>
           </div>

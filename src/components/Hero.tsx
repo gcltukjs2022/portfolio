@@ -19,21 +19,11 @@ const Hero: React.FC<HeroProps> = ({
 }) => {
   const windowSize: Size = useWindowSize();
   const [scrollY, setScrollY] = useState<number>(window.scrollY);
-  const [breakpoint, setBreakpoint] = useState(88);
   const { ref, inView } = useInView();
-  const [isHovered, setIsHovered] = useState(false);
 
   const handleScroll = () => {
     setScrollY(window.scrollY);
   };
-
-  useEffect(() => {
-    if (windowSize.width! > 640) {
-      setBreakpoint(104);
-    } else {
-      setBreakpoint(88);
-    }
-  }, [windowSize]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -61,19 +51,17 @@ const Hero: React.FC<HeroProps> = ({
       id="hero"
       className="relative z-1 w-full h-screen bg-hero bg-right lg:bg-cover"
     >
-      {scrollY <= breakpoint && (
+      <div ref={ref}></div>
+      {scrollY <= 88 && (
         <Header
           handleScrollToView={handleScrollToView}
           currTab={currTab}
           setCurrTab={setCurrTab}
         />
       )}
-      <div
-        ref={ref}
-        className="absolute top-[20%] lg:top-[10%] 2xl:top-[20%] w-full h-full px-6 lg:p-24 flex flex-col sm:items-center gap-y-6 lg:gap-y-12 text-white"
-      >
+      <div className="absolute top-[20%] lg:top-[10%] 2xl:top-[20%] w-full h-full px-6 lg:p-24 flex flex-col xs:items-center gap-y-6 lg:gap-y-12 text-white">
         <h1 className="font-extrabold text-3xl sm:text-4xl lg:text-5xl">
-          HELLO, I'M {windowSize.width! <= 640 && <br />}{" "}
+          HELLO, I'M {windowSize.width! <= 475 && <br />}{" "}
           <span className="text-red">GEORGE CHUNG</span>
         </h1>
         <h1 className="text-xl sm:text-2xl lg:text-3xl">
