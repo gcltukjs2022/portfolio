@@ -11,7 +11,7 @@ const Projects = () => {
           </h1>
           <p className="xl:text-center text-lg xl:max-w-[60%] xl:m-auto">
             Here you will find some of the personal and clients projects that I
-            created with each project containing its own case study
+            have done
           </p>
         </div>
         <div className=""></div>
