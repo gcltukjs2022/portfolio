@@ -5,13 +5,42 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Projects from "./components/Projects";
 import Contact from "./components/Contact";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import useWindowSize, { Size } from "./utils/useWindowSize";
+import { useInView } from "react-intersection-observer";
 
 function App() {
   const windowSize: Size = useWindowSize();
-  const [breakpoint, setBreakpoint] = useState(88);
   const [scrollY, setScrollY] = useState<number>(window.scrollY);
+  const { ref, inView } = useInView();
+  const heroRef = useRef<HTMLDivElement | null>(null);
+  const aboutRef = useRef<HTMLDivElement | null>(null);
+  const projectsRef = useRef<HTMLDivElement | null>(null);
+  const contactRef = useRef<HTMLDivElement | null>(null);
+  const [currTab, setCurrTab] = useState("Home");
+
+  const handleScrollToView = (tab: string) => {
+    let ref;
+    switch (tab) {
+      case "hero":
+        ref = heroRef;
+        break;
+      case "about":
+        ref = aboutRef;
+        break;
+      case "projects":
+        ref = projectsRef;
+        break;
+      case "contact":
+        ref = contactRef;
+        break;
+      default:
+        ref = heroRef;
+    }
+    if (ref.current) {
+      ref.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
 
   const handleScroll = () => {
     setScrollY(window.scrollY);
@@ -24,22 +53,34 @@ function App() {
     };
   }, []);
 
-  useEffect(() => {
-    if (windowSize.width! > 640) {
-      setBreakpoint(104);
-    } else {
-      setBreakpoint(88);
-    }
-  }, [windowSize]);
-
   return (
     <main className="relative max-w-[2560px] m-auto overflow-hidden">
-      {scrollY > breakpoint && <Header />}
-      <Hero />
-      <About />
-      <Projects />
-      <Contact />
-      <Footer />
+      <div className={`${scrollY <= 88 && "hidden"} `}>
+        <Header
+          handleScrollToView={handleScrollToView}
+          currTab={currTab}
+          setCurrTab={setCurrTab}
+        />
+      </div>
+      <Hero
+        scrollRef={heroRef}
+        handleScrollToView={handleScrollToView}
+        currTab={currTab}
+        setCurrTab={setCurrTab}
+      />
+      <About
+        scrollRef={aboutRef}
+        setCurrTab={setCurrTab}
+      />
+      <Projects
+        scrollRef={projectsRef}
+        setCurrTab={setCurrTab}
+      />
+      <Contact
+        scrollRef={contactRef}
+        setCurrTab={setCurrTab}
+      />
+      <Footer handleScrollToView={handleScrollToView} />
     </main>
   );
 }

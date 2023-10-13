@@ -1,10 +1,30 @@
-const Contact = () => {
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+
+type ContactProps = {
+  scrollRef?: React.MutableRefObject<HTMLDivElement | null>;
+  setCurrTab: React.Dispatch<React.SetStateAction<string>>;
+};
+
+const Contact: React.FC<ContactProps> = ({ scrollRef, setCurrTab }) => {
+  const { ref, inView } = useInView();
+
+  useEffect(() => {
+    if (inView) {
+      setCurrTab("contact");
+    }
+  }, [inView]);
+
   return (
     <section
+      ref={scrollRef}
       id="contact"
-      className="w-full p-6 lg:pt-[128px] lg:px-12 bg-grey"
+      className="w-full p-6 pt-[108px] lg:pt-[128px] lg:px-12 bg-grey"
     >
-      <div className="max-w-[1440px] mx-auto flex flex-col gap-y-12 ">
+      <div
+        ref={ref}
+        className="max-w-[1440px] mx-auto flex flex-col gap-y-12 "
+      >
         <div className="flex flex-col justify-center gap-y-6 ">
           <h1 className="xl:text-center text-2xl xl:text-4xl font-extrabold border-b-4 border-white pb-4 xl:pb-6 xl:max-w-max xl:m-auto text-white">
             CONTACT
