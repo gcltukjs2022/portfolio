@@ -1,9 +1,20 @@
 import { useEffect, useState } from "react";
 import imgs from "../assets";
+import useWindowSize, { Size } from "../utils/useWindowSize";
 
 const Header = () => {
+  const windowSize: Size = useWindowSize();
   const [scrollY, setScrollY] = useState<number>(window.scrollY);
   const [isOpen, setIsOpen] = useState(false);
+  const [breakpoint, setBreakpoint] = useState(88);
+
+  useEffect(() => {
+    if (windowSize.width! > 640) {
+      setBreakpoint(104);
+    } else {
+      setBreakpoint(88);
+    }
+  }, [windowSize]);
 
   const handleScroll = () => {
     setScrollY(window.scrollY);
@@ -20,10 +31,10 @@ const Header = () => {
     <>
       <header
         className={`fixed w-full top-0 z-20 ${
-          scrollY > 88 ? "bg-grey shadow-lg" : "bg-transparent "
+          scrollY > breakpoint ? "bg-grey shadow-lg" : "bg-transparent "
         }`}
       >
-        <div className="max-w-[1440px] mx-auto p-6 lg:py-4 lg:px-12 flex justify-between text-white overflow-hidden">
+        <div className="max-w-[1440px] mx-auto p-6 flex justify-between items-center text-white overflow-hidden">
           <a
             href="#hero"
             className="flex justify-center items-center gap-x-3"
@@ -49,7 +60,7 @@ const Header = () => {
               <h2>CONTACT</h2>
             </a>
           </nav>
-          <nav className="overflow-hidden">
+          <nav className="xl:hidden overflow-hidden">
             <div className="mx-auto flex justify-between items-center sm:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
@@ -76,7 +87,7 @@ const Header = () => {
       </header>
       <div
         id="burger"
-        className={`absolute z-10 top-0 w-full min-h-screen p-4 pt-24 bg-grey  transition-all duration-200 ease-in-out ${
+        className={`xl:hidden absolute z-10 top-0 w-full min-h-screen p-4 pt-24 bg-grey  transition-all duration-200 ease-in-out ${
           isOpen ? "right-0" : "-right-[120%]"
         }`}
       >

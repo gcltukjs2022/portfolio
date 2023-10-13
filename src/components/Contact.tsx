@@ -2,7 +2,7 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="w-full max-w-[1440px] mx-auto p-6 lg:pt-[128px] lg:px-12 bg-grey"
+      className="w-full p-6 lg:pt-[128px] lg:px-12 bg-grey"
     >
       <div className="max-w-[1440px] mx-auto flex flex-col gap-y-12 ">
         <div className="flex flex-col justify-center gap-y-6 ">
