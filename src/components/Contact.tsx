@@ -2,19 +2,19 @@ const Contact = () => {
   return (
     <section
       id="contact"
-      className="w-full p-3 lg:py-12 lg:pt-[168px] lg:px-12 bg-slate-300"
+      className="w-full max-w-[1440px] mx-auto p-6 lg:pt-[128px] lg:px-12 bg-grey"
     >
-      <div className="flex flex-col gap-y-12 ">
+      <div className="max-w-[1440px] mx-auto flex flex-col gap-y-12 ">
         <div className="flex flex-col justify-center gap-y-6 ">
-          <h1 className="text-center text-4xl font-extrabold border-b-4 border-black pb-6 max-w-max m-auto">
+          <h1 className="xl:text-center text-2xl xl:text-4xl font-extrabold border-b-4 border-white pb-4 xl:pb-6 xl:max-w-max xl:m-auto text-white">
             CONTACT
           </h1>
-          <p className="text-center text-lg max-w-[60%] m-auto">
+          <p className="xl:text-center text-lg xl:max-w-[60%] xl:m-auto text-white">
             Feel free to Contact me by submitting the form below and I will get
             back to you as soon as possible
           </p>
         </div>
-        <div className="bg-white w-full max-w-[60%] m-auto px-8 py-12 shadow-2xl rounded-lg">
+        <div className="bg-white w-full xl:max-w-[60%] m-auto px-8 py-12 shadow-2xl rounded-lg">
           <form className="w-full flex flex-col gap-y-8">
             <div className="flex flex-col gap-y-3">
               <label>Name</label>
@@ -38,7 +38,9 @@ const Contact = () => {
               />
             </div>
             <h1></h1>
-            <button>SUBMIT</button>
+            <button className="bg-grey p-4 text-white font-semibold rounded-lg">
+              SUBMIT
+            </button>
           </form>
         </div>
       </div>

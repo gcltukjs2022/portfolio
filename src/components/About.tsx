@@ -23,19 +23,19 @@ const About = () => {
   return (
     <section
       id="about"
-      className="w-full h-screen p-3 lg:pt-[128px] lg:px-12"
+      className="w-full max-w-[1440px] mx-auto p-6 lg:pt-[128px] lg:px-12"
     >
-      <div className="flex flex-col gap-y-12">
+      <div className="flex flex-col gap-y-6 xl:gap-y-12">
         <div className="flex flex-col justify-center gap-y-6 ">
-          <h1 className="text-center text-4xl font-extrabold border-b-4 border-black pb-6 max-w-max m-auto">
+          <h1 className="xl:text-center text-2xl xl:text-4xl font-extrabold border-b-4 border-black pb-4 xl:pb-6 xl:max-w-max xl:m-auto">
             ABOUT ME
           </h1>
-          <p className="text-center text-lg max-w-[60%] m-auto">
+          <p className="xl:text-center text-lg xl:max-w-[60%] xl:m-auto">
             Here you will find more information about me, what I do, and my
             current skills mostly in terms of programming and technology
           </p>
         </div>
-        <div className="flex gap-x-12 justify-between">
+        <div className="flex flex-col xl:flex-row gap-6 xl:gap-12 justify-between">
           <div className="flex flex-col flex-1 gap-y-6">
             <h1 className="text-2xl font-bold">Get to know me!</h1>
             <div className="flex flex-col gap-y-3">
