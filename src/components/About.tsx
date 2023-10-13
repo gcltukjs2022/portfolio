@@ -1,4 +1,13 @@
-const About = () => {
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
+
+type AboutProps = {
+  scrollRef?: React.MutableRefObject<HTMLDivElement | null>;
+  setCurrTab: React.Dispatch<React.SetStateAction<string>>;
+};
+
+const About: React.FC<AboutProps> = ({ scrollRef, setCurrTab }) => {
+  const { ref, inView } = useInView();
   const stacks = [
     "TypeScript",
     "JavaScript",
@@ -20,12 +29,23 @@ const About = () => {
     "Responsive Design",
     "SEO",
   ];
+
+  useEffect(() => {
+    if (inView) {
+      setCurrTab("about");
+    }
+  }, [inView]);
+
   return (
     <section
+      ref={scrollRef}
       id="about"
-      className="w-full max-w-[1440px] mx-auto p-6 lg:pt-[128px] lg:px-12"
+      className="w-full max-w-[1440px] mx-auto p-6 pt-[108px] lg:pt-[128px] lg:px-12"
     >
-      <div className="flex flex-col gap-y-6 xl:gap-y-12">
+      <div
+        className="flex flex-col gap-y-6 xl:gap-y-12"
+        ref={ref}
+      >
         <div className="flex flex-col justify-center gap-y-6 ">
           <h1 className="xl:text-center text-2xl xl:text-4xl font-extrabold border-b-4 border-black pb-4 xl:pb-6 xl:max-w-max xl:m-auto">
             ABOUT ME

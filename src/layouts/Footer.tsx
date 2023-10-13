@@ -1,16 +1,19 @@
 import imgs from "../assets";
 
-const Footer = () => {
+type FooterProps = {
+  handleScrollToView: (tab: string) => void;
+};
+
+const Footer: React.FC<FooterProps> = ({ handleScrollToView }) => {
   return (
     <footer className="p-12 bg-grey">
       <div className="flex flex-col items-center gap-10 max-w-[1440px] mx-auto">
-        <a href="#hero">
-          <img
-            src={imgs.arrowUp}
-            alt="arrow-up"
-            className="w-10 h-10"
-          />
-        </a>
+        <img
+          src={imgs.arrowUp}
+          alt="arrow-up"
+          className="w-10 h-10 cursor-pointer"
+          onClick={() => handleScrollToView("hero")}
+        />
 
         <div className="flex gap-x-6 items-center">
           <a

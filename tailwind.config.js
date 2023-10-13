@@ -5,6 +5,7 @@ export default {
     extend: {
       colors: {
         grey: "#252934",
+        red: "#e31b6d",
       },
       keyframes: {
         slide: {
