@@ -21,6 +21,7 @@ const Hero: React.FC<HeroProps> = ({
   const [scrollY, setScrollY] = useState<number>(window.scrollY);
   const [breakpoint, setBreakpoint] = useState(88);
   const { ref, inView } = useInView();
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleScroll = () => {
     setScrollY(window.scrollY);
@@ -100,12 +101,22 @@ const Hero: React.FC<HeroProps> = ({
             />
           </a>
         </div>
-        <button
+        {/* <button
           className="bg-transparent border-2 rounded-lg w-[260px] lg:w-[350px] text-white py-4 mt-12 xl:mt-4 lg:px-12 lg:py-4 font-semibold"
           onClick={scrollToProjects}
         >
           PROJECTS
+        </button> */}
+        <button
+          className="button mt-10 xl:mt-4"
+          onClick={scrollToProjects}
+        >
+          <span className="button_lg">
+            <span className="button_sl"></span>
+            <span className="button_text">PROJECTS</span>
+          </span>
         </button>
+
         <div className="hidden lg:block absolute lg:top-[70%] 2xl:top-[55%] left-1/2 transform -translate-x-1/2">
           <div className="w-[30px] h-[50px] border-2 border-white rounded-3xl relative overflow-hidden">
             <div className="w-[5px] h-[5px] absolute top-[20%] left-1/2 transform -translate-x-1/2 bg-white rounded-full animate-slide-down" />
