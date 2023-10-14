@@ -40,23 +40,20 @@ const About: React.FC<AboutProps> = ({ scrollRef, setCurrTab }) => {
     <section
       ref={scrollRef}
       id="about"
-      className="w-full min-h-screen max-w-[1440px] mx-auto p-6 pt-[108px] lg:pt-[148px] lg:px-12"
+      className="mx-auto min-h-screen w-full max-w-[1440px] p-6 pt-[108px] lg:px-12 lg:pt-[148px]"
     >
       <div className="flex flex-col gap-y-6 md:gap-y-24">
         <div className="flex flex-col justify-center">
-          <h1 className="md:text-center text-2xl sm:text-3xl xl:text-4xl font-extrabold border-b-4 border-black pb-4 md:pb-6 md:px-6 nd:max-w-max md:m-auto">
+          <h1 className="nd:max-w-max border-b-4 border-black pb-4 text-2xl font-extrabold sm:text-3xl md:m-auto md:px-6 md:pb-6 md:text-center xl:text-4xl">
             ABOUT ME
           </h1>
           {/* <p className="xl:text-center text-lg xl:max-w-[60%] xl:m-auto">
             Here you will find more information about me and my tech stacks
           </p> */}
         </div>
-        <div className="flex flex-col md:flex-row gap-12 justify-between">
-          <div className="flex flex-col flex-1 gap-y-6">
-            <h1
-              className="text-2xl font-bold"
-              ref={ref}
-            >
+        <div className="flex flex-col justify-between gap-12 md:flex-row">
+          <div className="flex flex-1 flex-col gap-y-6">
+            <h1 className="text-2xl font-bold" ref={ref}>
               My Story
             </h1>
             <div className="flex flex-col gap-y-3">
@@ -76,15 +73,12 @@ const About: React.FC<AboutProps> = ({ scrollRef, setCurrTab }) => {
               </p>
             </div>
           </div>
-          <div className="flex flex-col flex-1 gap-y-6">
+          <div className="flex flex-1 flex-col gap-y-6">
             <h1 className="text-2xl font-bold">My Tech Stacks</h1>
-            <div className="flex gap-3 flex-wrap">
+            <div className="flex flex-wrap gap-3">
               {stacks.map((stack, i) => {
                 return (
-                  <div
-                    key={i}
-                    className="bg-slate-300 p-3 rounded-full"
-                  >
+                  <div key={i} className="rounded-full bg-slate-300 p-3">
                     <p className="font-semibold">{stack}</p>
                   </div>
                 );

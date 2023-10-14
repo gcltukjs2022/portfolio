@@ -54,7 +54,7 @@ function App() {
   }, []);
 
   return (
-    <main className="relative max-w-[2560px] m-auto overflow-hidden flex flex-col">
+    <main className="relative m-auto flex max-w-[2560px] flex-col overflow-hidden">
       <div className={`${scrollY <= 88 && "hidden"} `}>
         <Header
           handleScrollToView={handleScrollToView}
@@ -68,18 +68,9 @@ function App() {
         currTab={currTab}
         setCurrTab={setCurrTab}
       />
-      <About
-        scrollRef={aboutRef}
-        setCurrTab={setCurrTab}
-      />
-      <Projects
-        scrollRef={projectsRef}
-        setCurrTab={setCurrTab}
-      />
-      <Contact
-        scrollRef={contactRef}
-        setCurrTab={setCurrTab}
-      />
+      <About scrollRef={aboutRef} setCurrTab={setCurrTab} />
+      <Projects scrollRef={projectsRef} setCurrTab={setCurrTab} />
+      <Contact scrollRef={contactRef} setCurrTab={setCurrTab} />
       <Footer handleScrollToView={handleScrollToView} />
     </main>
   );

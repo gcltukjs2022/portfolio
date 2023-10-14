@@ -35,23 +35,23 @@ const Header: React.FC<HeaderProps> = ({ handleScrollToView, currTab }) => {
   return (
     <>
       <header
-        className={`fixed w-full top-0 z-20 ${
+        className={`fixed top-0 z-20 w-full ${
           scrollY > 88 ? "bg-grey shadow-lg" : "bg-transparent"
         }`}
       >
-        <div className="max-w-[1440px] mx-auto p-6 sm:py-4 sm: px-6 flex justify-between items-center text-white overflow-hidden">
+        <div className="sm: mx-auto flex max-w-[1440px] items-center justify-between overflow-hidden p-6 px-6 text-white sm:py-4">
           <div
             onClick={() => handleScrollToView("hero")}
-            className="flex justify-center items-center gap-x-3 cursor-pointer"
+            className="flex cursor-pointer items-center justify-center gap-x-3"
           >
             <img
               src={imgs.profile}
               alt="profile"
-              className="w-10 h-10 sm:w-14 sm:h-14 rounded-full"
+              className="h-10 w-10 rounded-full sm:h-14 sm:w-14"
             />
             <h2 className="font-bold">GEORGE CHUNG</h2>
           </div>
-          <nav className="hidden sm:flex gap-x-6 lg:gap-x-12 items-center font-bold">
+          <nav className="hidden items-center gap-x-6 font-bold sm:flex lg:gap-x-12">
             <h2
               onClick={() => handleScrollToView("hero")}
               className={`${currTab === "hero" && "text-red"} cursor-pointer`}
@@ -81,31 +81,8 @@ const Header: React.FC<HeaderProps> = ({ handleScrollToView, currTab }) => {
               CONTACT
             </h2>
           </nav>
-          {/* <div className="sm:hidden">
-            <div className="mx-auto flex justify-between items-center sm:hidden">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                className="text-white hover:text-gray-400 focus:outline-none"
-              >
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="white"
-                  className="h-6 w-6"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </button>
-            </div>
-          </div> */}
           <div className="sm:hidden">
-            <div className="mx-auto flex justify-between items-center sm:hidden">
+            <div className="mx-auto flex items-center justify-between sm:hidden">
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 className="text-white hover:text-gray-400 focus:outline-none"
@@ -135,10 +112,11 @@ const Header: React.FC<HeaderProps> = ({ handleScrollToView, currTab }) => {
           </div>
         </div>
       </header>
+
       <nav
         id="burger"
         style={{ top: `${scrollY}px` }}
-        className={`md:hidden absolute z-10 flex flex-col gap-y-16 w-full min-h-screen p-4 pt-28 bg-grey  transition-all duration-200 ease-in-out ${
+        className={`absolute z-10 flex min-h-screen w-full flex-col gap-y-12 bg-grey p-4 pt-28 transition-all  duration-200 ease-in-out md:hidden ${
           isOpen ? "right-0" : "-right-[120%]"
         }`}
       >
@@ -152,7 +130,7 @@ const Header: React.FC<HeaderProps> = ({ handleScrollToView, currTab }) => {
               handleScrollToView("hero");
             }}
           >
-            <h1 className="text-2xl font-semiboldbold">HOME</h1>
+            <h2 className="font-semiboldbold text-2xl">HOME</h2>
           </li>
           <li
             className={`py-4 ${
@@ -163,7 +141,7 @@ const Header: React.FC<HeaderProps> = ({ handleScrollToView, currTab }) => {
               handleScrollToView("about");
             }}
           >
-            <h1 className="text-2xl font-semiboldbold">ABOUT</h1>
+            <h2 className="font-semiboldbold text-2xl">ABOUT</h2>
           </li>
           <li
             className={`py-4 ${
@@ -174,7 +152,7 @@ const Header: React.FC<HeaderProps> = ({ handleScrollToView, currTab }) => {
               handleScrollToView("projects");
             }}
           >
-            <h1 className="text-2xl font-semiboldbold">PROJECTS</h1>
+            <h2 className="font-semiboldbold text-2xl">PROJECTS</h2>
           </li>
           <li
             className={`py-4 ${
@@ -185,30 +163,20 @@ const Header: React.FC<HeaderProps> = ({ handleScrollToView, currTab }) => {
               handleScrollToView("contact");
             }}
           >
-            <h1 className="text-2xl font-semiboldbold">CONTACTS</h1>
+            <h2 className="font-semiboldbold text-2xl">CONTACTS</h2>
           </li>
         </ul>
 
-        <div className="flex gap-x-12 justify-center">
-          <a
-            href="https://www.linkedin.com/in/laptakchung"
-            target="_blank"
-          >
+        <div className="mx-auto flex justify-center gap-x-12 border-t-2 px-20 pt-10">
+          <a href="https://www.linkedin.com/in/laptakchung" target="_blank">
             <img
               src={imgs.linkedinWhite}
               alt="linkedin"
-              className="w-12 h-12"
+              className="h-12 w-12"
             />
           </a>
-          <a
-            href="https://github.com/gcltukjs2022"
-            target="_blank"
-          >
-            <img
-              src={imgs.githubWhite}
-              alt="github"
-              className="w-10 h-10"
-            />
+          <a href="https://github.com/gcltukjs2022" target="_blank">
+            <img src={imgs.githubWhite} alt="github" className="h-10 w-10" />
           </a>
         </div>
       </nav>
