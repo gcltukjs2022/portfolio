@@ -21,46 +21,45 @@ const Contact: React.FC<ContactProps> = ({ scrollRef, setCurrTab }) => {
     <section
       ref={scrollRef}
       id="contact"
-      className="w-full p-6 pt-[108px] lg:pt-[128px] lg:px-12 bg-grey"
+      className="w-full bg-grey p-6 pt-[108px] lg:px-12 lg:pt-[128px]"
     >
-      <div className="max-w-[1440px] mx-auto flex flex-col gap-y-20 ">
+      <div className="mx-auto flex max-w-[1440px] flex-col gap-y-20 ">
         <div className="flex flex-col justify-center gap-y-6 ">
-          <h1 className="md:text-center text-2xl sm:text-3xl xl:text-4xl font-extrabold border-b-4 border-white text-white pb-4 md:pb-6 md:px-6 nd:max-w-max md:m-auto">
+          <h1 className="nd:max-w-max border-b-4 border-white pb-4 text-2xl font-extrabold text-white sm:text-3xl md:m-auto md:px-6 md:pb-6 md:text-center xl:text-4xl">
             CONTACT
           </h1>
-          <p className="md:text-center text-lg xl:max-w-[60%] xl:m-auto text-white">
+          <p className="text-lg text-white md:text-center xl:m-auto xl:max-w-[60%]">
             Feel free to Contact me by submitting the form below and I will get
             back to you as soon as possible
           </p>
         </div>
         <div
-          className="bg-white w-full md:max-w-[80%] lg:max-w-[80%] m-auto px-8 py-12 shadow-2xl rounded-lg"
+          className="m-auto w-full rounded-lg bg-white px-8 py-12 shadow-2xl md:max-w-[80%] lg:max-w-[80%]"
           ref={ref}
         >
-          <form className="w-full flex flex-col gap-y-8">
+          <form className="flex w-full flex-col gap-y-8">
             <div className="flex flex-col gap-y-3">
               <label>Name</label>
               <input
-                className="p-6 bg-slate-200 h-[40px] rounded-lg"
+                className="h-[40px] rounded-lg bg-slate-200 p-6"
                 placeholder="Enter Your Name"
               />
             </div>
             <div className="flex flex-col gap-y-3">
               <label>Email</label>
               <input
-                className="bg-slate-200 p-6 h-[40px] rounded-lg"
+                className="h-[40px] rounded-lg bg-slate-200 p-6"
                 placeholder="Enter Your Email"
               />
             </div>
             <div className="flex flex-col gap-y-3">
               <label>Message</label>
               <textarea
-                className="bg-slate-200 p-6 h-[200px] rounded-lg resize-none"
+                className="h-[200px] resize-none rounded-lg bg-slate-200 p-6"
                 placeholder="Enter Your Message"
               />
             </div>
-            <h1></h1>
-            <button className="bg-grey p-4 text-white font-semibold rounded-lg">
+            <button className="rounded-lg bg-grey p-4 font-semibold text-white lg:w-[40%] lg:self-center">
               SUBMIT
             </button>
           </form>
